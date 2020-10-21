@@ -1,0 +1,356 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TestingTimezone
+</name>
+</assembly>
+<members>
+<member name="T:TestingTimezone.My.MyWebExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:TestingTimezone.My.MyWebExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:TestingTimezone.My.MyWebExtension.User">
+ <summary>
+ Returns information for the current Web user.
+ </summary>
+</member>
+<member name="P:TestingTimezone.My.MyWebExtension.Request">
+ <summary>
+ Returns Request object.
+ </summary>
+</member>
+<member name="P:TestingTimezone.My.MyWebExtension.Response">
+ <summary>
+ Returns Response object.
+ </summary>
+</member>
+<member name="P:TestingTimezone.My.MyWebExtension.Log">
+ <summary>
+ Returns the Asp log object.
+ </summary>
+</member>
+<member name="M:TestingTimezone.TestingTimezone.Commonfunction.UTCtoOther(System.DateTime,System.String,System.String)">
+ <summary>
+ Convert UTC to mentioned timezone, pass Application Default Timezone if no timezone found
+ </summary>
+ <param name="timeUtc"></param>
+ <param name="ToTimeZone"></param>
+ <param name="DefaultTimeZone">TimeZone not found</param>
+ <returns>DateTime in Specified Timezone</returns>
+</member>
+<member name="M:TestingTimezone.TestingTimezone.Commonfunction.CurrentDateTimeZone(System.String)">
+ <summary>
+ Get Date Time as per Application Timezone
+ </summary>
+ <param name="ToTimeZone"></param>
+ <returns>String:DateTime</returns>
+</member>
+<member name="M:TestingTimezone.TestingTimezone.Commonfunction.ConvertToUTC(System.String,System.String,System.String)">
+ <summary>
+ Convert source Date Time to target UTC, source will be Application Time if not found on system.
+ </summary>
+ <param name="Fromtime"></param>
+ <param name="FromTimeZone"></param>
+ <param name="DefaultTimeZone"></param>
+ <returns>Date in UTC</returns>
+</member>
+<member name="M:TestingTimezone.TestingTimezone.Commonfunction.GetLocalTimeZone(System.String,System.String)">
+ <summary>
+ Get User Browser Time Zone matched with Available Timezone on Machine.
+ </summary>
+ <param name="Offset">Client Browser TimeOffset</param>
+ <param name="localdatetime">Client Browser Time</param>
+ <returns></returns>
+</member>
+<member name="F:TestingTimezone._Default._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._ddlLogin">
+<summary>
+ddlLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._rqdfddlLogin">
+<summary>
+rqdfddlLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._BtnLogin">
+<summary>
+BtnLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._hdnlocaltimezone">
+<summary>
+hdnlocaltimezone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._hdnclientdatetime">
+<summary>
+hdnclientdatetime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._head">
+<summary>
+head control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._LnkLogout">
+<summary>
+LnkLogout control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._ltLocalTime">
+<summary>
+ltLocalTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._ltLocalTimeZone">
+<summary>
+ltLocalTimeZone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._hr">
+<summary>
+hr control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._min">
+<summary>
+min control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._sec">
+<summary>
+sec control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._ltAppDefTime">
+<summary>
+ltAppDefTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Site1._ContentPlaceHolder1">
+<summary>
+ContentPlaceHolder1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.StudentTest._dvmessage">
+<summary>
+dvmessage control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.StudentZone._GrdTests">
+<summary>
+GrdTests control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="M:TestingTimezone.StudentZone.GetAllTests">
+ <summary>
+ Bind Upcoming Gridview 
+ </summary>
+</member>
+<member name="M:TestingTimezone.StudentZone.GrdTests_RowDataBound(System.Object,System.Web.UI.WebControls.GridViewRowEventArgs)">
+ <summary>
+ Row level operation : 
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="F:TestingTimezone.Teacher._ddlTopics">
+<summary>
+ddlTopics control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._rqdfddltopic">
+<summary>
+rqdfddltopic control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._txtStartDateTime">
+<summary>
+txtStartDateTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._cusStartDateTime">
+<summary>
+cusStartDateTime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._ddlHours">
+<summary>
+ddlHours control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._ddlMinutes">
+<summary>
+ddlMinutes control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._CusValDuration">
+<summary>
+CusValDuration control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._ddlTimeZone">
+<summary>
+ddlTimeZone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._rqfvddlTimeZone">
+<summary>
+rqfvddlTimeZone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._BtnCreateTest">
+<summary>
+BtnCreateTest control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._dvmessage">
+<summary>
+dvmessage control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone.Teacher._hdnlocaltimezone">
+<summary>
+hdnlocaltimezone control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+</members>
+</doc>

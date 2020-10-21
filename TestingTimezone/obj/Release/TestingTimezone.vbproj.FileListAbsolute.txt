@@ -1,0 +1,11 @@
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\bin\TestingTimezone.dll.config
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\bin\TestingTimezone.dll
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\bin\TestingTimezone.pdb
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\bin\TestingTimezone.xml
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.vbprojAssemblyReference.cache
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.Resources.resources
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.vbproj.GenerateResource.cache
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.vbproj.CoreCompileInputs.cache
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.dll
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.xml
+D:\Projects\Sean\Bart\TestingTimezone\TestingTimezone\obj\Release\TestingTimezone.pdb

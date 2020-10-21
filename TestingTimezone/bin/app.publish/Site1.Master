@@ -1,0 +1,193 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site1.master.vb" Inherits="TestingTimezone.Site1" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+    <title>Welcome to Timezone project</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script type="text/javascript" defer="defer">
+        function getlocalTimeZone() {
+            var curDate = new Date();
+            var tz = /\((.*)\)/.exec(curDate.toString());
+            document.getElementById("ltLocalTime").innerHTML = curDate.toLocaleDateString("en-US") + " " + tz[1];
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="init();getlocalTimeZone();" class="skin-default-dark fixed-layout">
+    <form id="form1" runat="server">
+        
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+            <!-- ============================================================== -->
+            <!-- Topbar header - style you can find in pages.scss -->
+            <!-- ============================================================== -->
+            <header class="topbar">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-header">
+                        Scheduling Test  
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-collapse">
+                        <!-- ============================================================== -->
+                        <!-- toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav mr-auto">
+                            <!-- This is  -->
+                            <li class="nav-item hidden-sm-up"><a class="nav-link nav-toggler waves-effect waves-light"
+                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+
+                        </ul>
+                        <ul class="navbar-nav my-lg-0">
+
+                            <!-- User profile and search -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <asp:LinkButton CssClass="nav-link dropdown-toggle text-muted waves-effect waves-dark" Text="Logout" runat="server" ID="LnkLogout" OnClick="LnkLogout_Click"></asp:LinkButton>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <div class="page-wrapper">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+
+                    <div class="col-md-7 align-self-center text-right">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="btn btn-success d-none d-lg-block m-l-15" href="Teacher.aspx">Teacher</a></li>
+                                <li class="breadcrumb-item"><a class="btn btn-success d-none d-lg-block m-l-15" href="StudentZone.aspx">Student</a></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- Row -->
+
+                <div class="container-fluid">
+                    <!-- Row -->
+                    <div class="row">
+                        <!-- Column -->
+                        <div class="col-lg-8 col-xlg-9 col-md-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title"><b>Local Time</b> :
+                                        <asp:Label ID="ltLocalTime" runat="server"></asp:Label>&nbsp;<asp:Label ID="ltLocalTimeZone" Visible="false" runat="server"></asp:Label>
+                                        <div class="clock">
+                                            <span id="hr" runat="server">00</span>
+                                            <span>: </span>
+                                            <span id="min" runat="server">00</span>
+                                            <span>: </span>
+                                            <span id="sec" runat="server">00</span>
+                                        </div>
+                                    </h6>
+                                    <h6 class="card-title"><b>Default Time</b> :
+                                        <asp:Label ID="ltAppDefTime" runat="server"></asp:Label>
+                                    </h6>
+                                    <%-- <h6 class="card-title"><b>Time</b> :
+                                        <div class="clock">
+                                            <span id="hr" runat="server">00</span>
+                                            <span>: </span>
+                                            <span id="min" runat="server">00</span>
+                                            <span>: </span>
+                                            <span id="sec" runat="server">00</span>
+                                        </div>
+                                    </h6>--%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Column -->
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                Schedule a Test
+            </footer>
+        </div>
+    </form>
+
+    <!-- All Jquery -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="assets/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="assets/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="assets/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="assets/js/sticky-kit.min.js"></script>
+    <script src="assets/js/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="assets/js/custom.min.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <!-- Date range Plugin JavaScript -->
+    <script src="assets/js/bootstrap-timepicker.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+   
+    
+    <script>
+        var d, h, m, s, animate;
+
+        function init() {
+            d = new Date();
+            h = d.getHours();
+            m = d.getMinutes();
+            s = d.getSeconds();
+            clock();
+        };
+
+        function clock() {
+            s++;
+            if (s == 60) {
+                s = 0;
+                m++;
+                if (m == 60) {
+                    m = 0;
+                    h++;
+                    if (h == 24) {
+                        h = 0;
+                    }
+                }
+            }
+            ff('sec', s);
+            ff('min', m);
+            ff('hr', h);
+            animate = setTimeout(clock, 1000);
+        };
+
+        function ff(id, val) {
+            if (val < 10) {
+                val = '0' + val;
+            }
+            document.getElementById(id).innerHTML = val;
+        };
+
+    </script>
+</body>
+</html>
