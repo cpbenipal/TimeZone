@@ -9,11 +9,11 @@ Public Class Teacher
             Response.Redirect("Default.aspx")
         Else
             If Not IsPostBack Then
+                hdnlocaltimezone.Value = Convert.ToString(Session("UTCTimeZone"))
                 GetAllTimeZones()
                 GetAllTopics()
                 PopulateHours()
                 PopulateMinutes()
-                hdnlocaltimezone.Value = Convert.ToString(Session("localTime"))
             End If
         End If
     End Sub
@@ -50,7 +50,7 @@ Public Class Teacher
         ddlTimeZone.Items.Insert(0, New ListItem("-- Choose TimeZone--", "0"))
         ddlTimeZone.SelectedIndex = -1
         ' Timezone not found
-        ddlTimeZone.Items.FindByValue(Convert.ToString(Application(CStr("DefTimeZone")))).Selected = True
+        ddlTimeZone.Items.FindByValue(Convert.ToString(Application("DefTimeZone"))).Selected = True
     End Sub
 
     Protected Sub BtnCreateTest_Click(ByVal sender As Object, ByVal e As EventArgs)

@@ -66,11 +66,12 @@
     <script type="text/javascript">       
         var s = document.getElementById('<%=ddlTimeZone.ClientID %>');
         var curDate = new Date();
-        var tz = /\((.*)\)/.exec(curDate.toString())[1]; 
+        var tz = document.getElementById('<%=hdnlocaltimezone.ClientID %>').value; 
         for (var i = 0; i < s.options.length; i++) {
-            if (s.options[i].value == tz) {
+            if (s.options[i].text == tz) {
                 s.options[i].selected = true;
             }
         }
+        console.log(tz);                                                               
     </script>
 </asp:Content>

@@ -8,20 +8,21 @@ Namespace TestingTimezone
         ''' </summary>
         ''' <param name="timeUtc"></param>
         ''' <param name="ToTimeZone"></param>
-        ''' <param name="DefaultTimeZone">TimeZone not found</param>
+        ''' <param name="DefaultTimeZone">In case TimeZone not found</param>
         ''' <returns>DateTime in Specified Timezone</returns>
         Public Function UTCtoOther(ByVal timeUtc As DateTime, ByVal ToTimeZone As String, ByVal DefaultTimeZone As String) As Date
             Dim cstZone As TimeZoneInfo
             Dim cstTime As Date
+            Dim universalZone As TimeZoneInfo = TimeZoneInfo.Utc
             Try
                 cstZone = TimeZoneInfo.FindSystemTimeZoneById(ToTimeZone)
-                cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cstZone)
+                cstTime = TimeZoneInfo.ConvertTime(timeUtc, universalZone, cstZone)
             Catch ex As TimeZoneNotFoundException
                 cstZone = TimeZoneInfo.FindSystemTimeZoneById(DefaultTimeZone)
-                cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cstZone)
+                cstTime = TimeZoneInfo.ConvertTime(timeUtc, universalZone, cstZone)
             Catch ex As InvalidTimeZoneException
                 cstZone = TimeZoneInfo.FindSystemTimeZoneById(DefaultTimeZone)
-                cstTime = TimeZoneInfo.ConvertTimeFromUtc(timeUtc, cstZone)
+                cstTime = TimeZoneInfo.ConvertTime(timeUtc, universalZone, cstZone)
             End Try
             Return cstTime
         End Function
@@ -48,7 +49,6 @@ Namespace TestingTimezone
             Dim ustTime As Date
             Dim universalZone As TimeZoneInfo = TimeZoneInfo.Utc
             Try
-
                 ustZone = TimeZoneInfo.FindSystemTimeZoneById(FromTimeZone)
                 ustTime = TimeZoneInfo.ConvertTime(Convert.ToDateTime(Fromtime), ustZone, universalZone)
             Catch ex As Exception
@@ -60,28 +60,41 @@ Namespace TestingTimezone
         End Function
 
         ''' <summary>
-        ''' Get User Browser Time Zone matched with Available Timezone on Machine.
+        ''' 'Get User Browser Time Zone matched with Available Timezone on Machine
         ''' </summary>
-        ''' <param name="Offset">Client Browser TimeOffset</param>
-        ''' <param name="localdatetime">Client Browser Time</param>
+        ''' <param name="Offset"></param>
+        ''' <param name="timezoneName"></param>
         ''' <returns></returns>
-        Public Function GetLocalTimeZone(ByVal Offset As String, ByVal localdatetime As String) As String
-            Dim localtimezoneName As String = String.Empty
+        Public Function GetLocalTimeZone(ByVal Offset As String, ByVal clientTime As String, ByVal timezoneName As String) As TimeZoneParams
+
+            Dim TimeZoneParams As TimeZoneParams = New TimeZoneParams()
             Dim jsNumberOfMinutesOffset As String = Convert.ToString(Offset)
-            Dim clientDateTime As Date = Convert.ToDateTime(localdatetime)
+            Dim clientdatetime As DateTime = DateTime.Parse(clientTime)
+
             Dim numberOfMinutes As Integer = (Int32.Parse(jsNumberOfMinutesOffset) * -1)
             Dim timeSpan As TimeSpan = TimeSpan.FromMinutes(numberOfMinutes)
 
             For Each info As TimeZoneInfo In TimeZoneInfo.GetSystemTimeZones
                 ' Check if Daylighter Saving
-                Dim extra As Integer = If(info.IsDaylightSavingTime(clientDateTime), 60, 0)
-                If info.BaseUtcOffset = timeSpan Then
-                    localtimezoneName = Convert.ToString(info.Id)
-                    Exit For
+                Dim extra As TimeSpan = If(info.IsDaylightSavingTime(clientdatetime), TimeSpan.FromMinutes(60), TimeSpan.FromMinutes(0))
+                Dim timeSpanextra As TimeSpan = info.BaseUtcOffset.Add(extra)
+
+                If timeSpanextra = timeSpan Then
+                    ' First Comparsion 
+                    If info.StandardName = timezoneName OrElse info.Id = timezoneName OrElse info.DaylightName = timezoneName Then
+                        ' Got exact match
+                        TimeZoneParams.UTCTimeZone = info.DisplayName
+                        TimeZoneParams.MappedTimeZone = If(info.IsDaylightSavingTime(clientdatetime), info.DaylightName, info.StandardName)
+                        Exit For
+                    End If
+
                 End If
             Next
-            Return localtimezoneName
+            Return TimeZoneParams
         End Function
-
     End Module
+    Public Class TimeZoneParams
+        Public Property MappedTimeZone As String
+        Public Property UTCTimeZone As String
+    End Class
 End Namespace

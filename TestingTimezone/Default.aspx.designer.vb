@@ -50,13 +50,13 @@ Partial Public Class _Default
     Protected WithEvents BtnLogin As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''hdnlocaltimezone control.
+    '''hdnOffset control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hdnlocaltimezone As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents hdnOffset As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
     '''hdnclientdatetime control.
@@ -66,4 +66,13 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents hdnclientdatetime As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
+    '''hdndeftz control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents hdndeftz As Global.System.Web.UI.WebControls.HiddenField
 End Class

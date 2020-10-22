@@ -13,7 +13,7 @@
         function getlocalTimeZone() {
             var curDate = new Date();
             var tz = /\((.*)\)/.exec(curDate.toString());
-            document.getElementById("ltLocalTime").innerHTML = curDate.toLocaleDateString("en-US") + " " + tz[1];
+            document.getElementById("ltLocalTime").innerHTML = curDate.toLocaleString() + " " + tz[1];
         }
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">

@@ -5,7 +5,7 @@ Public Class Site1
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ltAppDefTime.Text = Commonfunction.CurrentDateTimeZone(Application("DefTimeZone").ToString)
-
+        'ltLocalTime.Text = Convert.ToString(Session("localTime"))
         ' ltLocalTimeZone.Text = Convert.ToString(Session("localTime"))
     End Sub
 

@@ -43,7 +43,7 @@ TestingTimezone
  </summary>
  <param name="timeUtc"></param>
  <param name="ToTimeZone"></param>
- <param name="DefaultTimeZone">TimeZone not found</param>
+ <param name="DefaultTimeZone">In case TimeZone not found</param>
  <returns>DateTime in Specified Timezone</returns>
 </member>
 <member name="M:TestingTimezone.TestingTimezone.Commonfunction.CurrentDateTimeZone(System.String)">
@@ -62,12 +62,12 @@ TestingTimezone
  <param name="DefaultTimeZone"></param>
  <returns>Date in UTC</returns>
 </member>
-<member name="M:TestingTimezone.TestingTimezone.Commonfunction.GetLocalTimeZone(System.String,System.String)">
+<member name="M:TestingTimezone.TestingTimezone.Commonfunction.GetLocalTimeZone(System.String,System.String,System.String)">
  <summary>
- Get User Browser Time Zone matched with Available Timezone on Machine.
+ 'Get User Browser Time Zone matched with Available Timezone on Machine
  </summary>
- <param name="Offset">Client Browser TimeOffset</param>
- <param name="localdatetime">Client Browser Time</param>
+ <param name="Offset"></param>
+ <param name="timezoneName"></param>
  <returns></returns>
 </member>
 <member name="F:TestingTimezone._Default._form1">
@@ -106,9 +106,9 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:TestingTimezone._Default._hdnlocaltimezone">
+<member name="F:TestingTimezone._Default._hdnOffset">
 <summary>
-hdnlocaltimezone control.
+hdnOffset control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -118,6 +118,15 @@ To modify move field declaration from designer file to code-behind file.
 <member name="F:TestingTimezone._Default._hdnclientdatetime">
 <summary>
 hdnclientdatetime control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:TestingTimezone._Default._hdndeftz">
+<summary>
+hdndeftz control.
 </summary>
 <remarks>
 Auto-generated field.

@@ -31,22 +31,20 @@
 
                     <br />
                     <asp:Button ID="BtnLogin" CssClass="btn btn-info btn-rounded waves-effect waves-light m-b-40" ValidationGroup="A" Text="Login" runat="server" OnClick="BtnLogin_Click"></asp:Button>
-                    <asp:HiddenField ID="hdnlocaltimezone" runat="server"></asp:HiddenField>
+                    <asp:HiddenField ID="hdnOffset" runat="server"></asp:HiddenField>
                     <asp:HiddenField ID="hdnclientdatetime" runat="server"></asp:HiddenField>
-                     <script type="text/javascript" src="assets/js/commonfunctions.js"></script>
+                    <asp:HiddenField ID="hdndeftz" runat="server"></asp:HiddenField>
                     <script type="text/javascript" defer="defer">                                                  
-                        GetClientoffset();
-                        GetClientDateTime();
+
                         var curDate = new Date();
                         var tz = /\((.*)\)/.exec(curDate.toString());
-                        console.log(tz[1]);
-                        console.log(document.getElementById("hdnlocaltimezone").value);
-                        console.log(document.getElementById("hdnclientdatetime").value);
-                    </script>
-                </div>
+                        document.getElementById("hdndeftz").value = tz[1];
+                        document.getElementById("hdnOffset").value = curDate.getTimezoneOffset();
+                        document.getElementById("hdnclientdatetime").value = curDate.toISOString();
+                        console.log(curDate.toString() + "    " + curDate.getTimezoneOffset());
+                    </script>   
             </div>
-        </section>
-
+        </section>                                                                                  
     </form>
 </body>
 </html>
